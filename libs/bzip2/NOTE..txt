@@ -1,0 +1,12 @@
+bxlib.h needed by zuFile.h(37)
+
+  RouteMap.cpp
+  RouteMapOverlay.cpp
+C:\Users\Rick\Documents\GitHub\weather_routing_pi\include\zuFile.h(37): fatal error C1083: Cannot open include file: 'bzlib.h': No such file or directory (compiling source file C:\Users\Rick\Documents\GitHub\weather_routing_pi\src\Polar.cpp)
+[C:\Users\Rick\Documents\GitHub\weather_routing_pi\build\weather_routing_pi.vcxproj]
+  Utilities.cpp
+  LineBufferOverlay.cpp
+C:\Users\Rick\Documents\GitHub\weather_routing_pi\src\Boat.cpp(267): warning C4305: 'argument': truncation from 'double'
+to 'float' [C:\Users\Rick\Documents\GitHub\weather_routing_pi\build\weather_routing_pi.vcxproj]
+  PolygonRegion.cpp
+  WeatherRoutingUI.cpp
