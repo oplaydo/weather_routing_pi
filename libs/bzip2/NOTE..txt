@@ -1,4 +1,4 @@
-bxlib.h needed by zuFile.h(37)
+bzlib.h needed by zuFile.h(37)
 
   RouteMap.cpp
   RouteMapOverlay.cpp
