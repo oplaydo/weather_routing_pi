@@ -292,15 +292,15 @@ set(EXTINCLUDE
 
 set(LIBSSRC libs/wxJSON/src/jsonreader.cpp libs/wxJSON/src/jsonval.cpp libs/wxJSON/src/jsonwriter.cpp)
 
-set(LIBHDRS
-    libs/GL/gl.h
-    libs/GL/gl_private.h
-    libs/GL/glext.h
-    libs/GL/glu.h
-    libs/wx/include/json_defs.h
-    libs/wx/include/jsonreader.h
-    libs/wx/include/jsonval.h
-    libs/wx/include/jsonwriter.h)
+#set(LIBHDRS
+#    libs/GL/gl.h
+#    libs/GL/gl_private.h
+#    libs/GL/glext.h
+#    libs/GL/glu.h
+#    libs/wx/include/json_defs.h
+#    libs/wx/include/jsonreader.h
+#    libs/wx/include/jsonval.h
+#    libs/wx/include/jsonwriter.h)
 
 add_definitions(-DPLUGIN_USE_SVG)
 
@@ -348,11 +348,13 @@ include_directories(BEFORE ${PROJECT_SOURCE_DIR}/include)
 include_directories(BEFORE ${PROJECT_SOURCE_DIR}/ocpnsrc/glu/include)
 # include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/glu/include)
 include_directories(BEFORE ${PROJECT_SOURCE_DIR}/${EXTINCLUDE_DIR})
-include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/)
+include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs)
 include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/GL)
 include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/wx/include/wx)
 include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/jsoncpp)
-include_directories(BEFORE ${PROJECT_SOURCE_DIR}/src/zlib-1.2.3)
+include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/jsoncpp/include/json)
+include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/bzip2)
+include_directories(BEFORE ${PROJECT_SOURCE_DIR}/libs/zlib-1.2.3)
 
 
 #==============================
@@ -365,9 +367,9 @@ if(NOT OCPN_FLATPAK_CONFIG)
     add_subdirectory(libs/jsoncpp)
     add_subdirectory(libs/tinyxml)
 
-    target_link_libraries(${PACKAGE_NAME} ocpn::jsoncpp)
-    target_link_libraries(${PACKAGE_NAME} ocpn::nmea0183)
-    target_link_libraries(${PACKAGE_NAME} ocpn::tinyxml)
+    target_link_libraries(${PACKAGE_NAME} libs::jsoncpp)
+#    target_link_libraries(${PACKAGE_NAME} libs::nmea0183)
+    target_link_libraries(${PACKAGE_NAME} libs::tinyxml)
 endif(NOT OCPN_FLATPAK_CONFIG)
 
 
@@ -394,8 +396,6 @@ add_definitions(-DTIXML_USE_STL)
 # Alec from watchdog
 #add_subdirectory(libs/tinyxml)
 #target_link_libraries(${PACKAGE_NAME} ocpn::tinyxml)
-
-
 
 
 # -------------------------------------------
